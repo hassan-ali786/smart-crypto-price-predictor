@@ -10,83 +10,41 @@ Original file is located at
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
+def clean_df(df):
+    df = df.copy()
+
+    df = df[df['Date'] != 'Date']
+    df = df.reset_index(drop=True)
+
+    df['Date'] = df['Date'].astype(str).str.strip()
+    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+
+    df = df.dropna(subset=['Date'])
+
+    return df
 
 def preprocess_data(df):
+    df = df[df['Date'] != 'Date']
+    df = df.reset_index(drop=True)
 
-    """
-    Preprocess Bitcoin dataset for machine learning.
-    """
+    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
+    df = df.dropna(subset=['Date'])
 
-    # -----------------------------------
-    # Convert Date Column
-    # -----------------------------------
-    df['Date'] = pd.to_datetime(df['Date'])
+    df['MA7'] = df['Close'].rolling(7).mean()
+    df['MA14'] = df['Close'].rolling(14).mean()
 
-    # -----------------------------------
-    # Sort Dataset by Date
-    # -----------------------------------
-    df = df.sort_values('Date')
-
-    # Reset index
-    df.reset_index(drop=True, inplace=True)
-
-    # -----------------------------------
-    # Feature Engineering
-    # -----------------------------------
-
-    # 7-Day Moving Average
-    df['MA7'] = df['Close'].rolling(window=7).mean()
-
-    # 30-Day Moving Average
-    df['MA30'] = df['Close'].rolling(window=30).mean()
-
-    # Daily Returns
-    df['Returns'] = df['Close'].pct_change()
-
-    # Lag Features
     df['Lag1'] = df['Close'].shift(1)
-
     df['Lag2'] = df['Close'].shift(2)
-
     df['Lag3'] = df['Close'].shift(3)
 
-    # -----------------------------------
-    # Handle Missing Values
-    # -----------------------------------
-    df.dropna(inplace=True)
+    df = df.dropna()
 
-    # -----------------------------------
-    # Feature Selection
-    # -----------------------------------
-    features = [
-        'Open',
-        'High',
-        'Low',
-        'Volume',
-        'MA7',
-        'MA30',
-        'Lag1',
-        'Lag2',
-        'Lag3'
-    ]
+    features = ['Open','High','Low','Volume','MA7','MA14','Lag1','Lag2','Lag3']
 
-    target = 'Close'
-
-    # -----------------------------------
-    # Create Feature Matrix and Target
-    # -----------------------------------
-    X = df[features]
-
-    y = df[target]
-
-    # -----------------------------------
-    # Feature Scaling
-    # -----------------------------------
     scaler = StandardScaler()
+    df[features] = scaler.fit_transform(df[features])
 
-    X_scaled = scaler.fit_transform(X)
+    return df, features
 
-    # -----------------------------------
-    # Return Processed Data
-    # -----------------------------------
-    return X_scaled, y, scaler
+df = clean_df(df)
+df_processed, features = preprocess_data(df)
