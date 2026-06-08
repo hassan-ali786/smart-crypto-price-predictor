@@ -10,28 +10,12 @@ Original file is located at
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
-def clean_df(df):
-    df = df.copy()
-
-    df = df[df['Date'] != 'Date']
-    df = df.reset_index(drop=True)
-
-    df['Date'] = df['Date'].astype(str).str.strip()
-    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
-
-    df = df.dropna(subset=['Date'])
-
-    return df
-
 def preprocess_data(df):
-    df = df[df['Date'] != 'Date']
-    df = df.reset_index(drop=True)
+    df = df.fillna(method='ffill')
+    df = df.dropna()
 
-    df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
-    df = df.dropna(subset=['Date'])
-
-    df['MA7'] = df['Close'].rolling(7).mean()
-    df['MA14'] = df['Close'].rolling(14).mean()
+    df['MA7'] = df['Close'].rolling(window=7).mean()
+    df['MA14'] = df['Close'].rolling(window=14).mean()
 
     df['Lag1'] = df['Close'].shift(1)
     df['Lag2'] = df['Close'].shift(2)
@@ -45,6 +29,8 @@ def preprocess_data(df):
     df[features] = scaler.fit_transform(df[features])
 
     return df, features
+    from src.preprocess import preprocess_data
 
-df = clean_df(df)
 df_processed, features = preprocess_data(df)
+
+df_processed.head()
