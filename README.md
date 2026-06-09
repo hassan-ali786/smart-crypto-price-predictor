@@ -1,35 +1,67 @@
-# Smart Crypto Price Predictor
+# 📊 Smart Crypto Price Predictor
 
-## Overview
-This project predicts cryptocurrency prices using machine learning and deep learning (LSTM). It also includes a simple web app for user interaction.
+An end-to-end Machine Learning project that predicts Bitcoin price using historical market data and technical indicators.
 
-## Features
-- Data analysis and visualization
-- Machine learning models
-- LSTM-based prediction
-- Streamlit web app
+---
 
-## Tech Stack
+## 🚀 Project Overview
+
+This project builds a complete ML pipeline for cryptocurrency price prediction using:
+
+- Time-series data (BTC-USD)
+- Technical indicators (MA, RSI, Lag features)
+- Machine Learning models (Linear Regression)
+
+---
+
+## 🧠 Workflow
+
+Data → Preprocessing → Feature Engineering → Model Training → Prediction
+
+---
+
+## 📁 Project Structure
+
+smart-crypto-price-predictor/
+├── data/
+├── notebooks/
+├── src/
+├── model.pkl
+
+---
+
+## 🤖 Model Used
+
+- Linear Regression (Best Performing Baseline Model)
+
+---
+
+## 📊 Features Used
+
+- Open, High, Low, Volume
+- Moving Averages (7, 14)
+- Lag Features
+- RSI
+- Returns
+
+---
+
+## ⚙️ Tech Stack
+
 - Python
-- scikit-learn
-- TensorFlow
-- Streamlit
+- Pandas
+- Scikit-learn
+- NumPy
+- Matplotlib
 
-## How to Run
+---
 
-1. Install requirements:
-pip install -r requirements.txt
+## 🔮 Output
 
-2. Run app:
-streamlit run app/app.py
+Predicts next Bitcoin closing price using historical trends.
 
-## Project Structure
-- data/ → datasets  
-- notebooks/ → analysis  
-- src/ → core code  
-- models/ → trained models  
-- app/ → web app  
+---
 
-## Team
-- Dua Zahra → Data & Model  
-- Hassan Ali → App & Deployment
+## 📌 Author
+
+Collaborative ML Project (Dua & Hassan)
