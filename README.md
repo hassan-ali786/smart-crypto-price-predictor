@@ -1,10 +1,10 @@
-# 📊 Smart Crypto Price Predictor
+#  Smart Crypto Price Predictor
 
 An end-to-end Machine Learning project that predicts Bitcoin price using historical market data and technical indicators.
 
 ---
 
-## 🚀 Project Overview
+##  Project Overview
 
 This project builds a complete ML pipeline for cryptocurrency price prediction using:
 
@@ -14,13 +14,13 @@ This project builds a complete ML pipeline for cryptocurrency price prediction u
 
 ---
 
-## 🧠 Workflow
+##  Workflow
 
 Data → Preprocessing → Feature Engineering → Model Training → Prediction
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 smart-crypto-price-predictor/
 ├── data/
@@ -30,13 +30,13 @@ smart-crypto-price-predictor/
 
 ---
 
-## 🤖 Model Used
+##  Model Used
 
 - Linear Regression (Best Performing Baseline Model)
 
 ---
 
-## 📊 Features Used
+##  Features Used
 
 - Open, High, Low, Volume
 - Moving Averages (7, 14)
@@ -46,7 +46,7 @@ smart-crypto-price-predictor/
 
 ---
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
 - Python
 - Pandas
@@ -56,12 +56,12 @@ smart-crypto-price-predictor/
 
 ---
 
-## 🔮 Output
+##  Output
 
 Predicts next Bitcoin closing price using historical trends.
 
 ---
 
-## 📌 Author
+##  Author
 
 Collaborative ML Project (Dua & Hassan)
