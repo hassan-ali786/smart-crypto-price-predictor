@@ -47,7 +47,7 @@ def prepare_data(df):
         "Low",
         "Volume",
         "MA7",
-        "MA14",
+        "MA30",
         "Lag1",
         "Lag2",
         "Lag3",
