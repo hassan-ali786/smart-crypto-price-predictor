@@ -11,7 +11,6 @@ from sklearn.metrics import (
     mean_absolute_percentage_error
 )
 
-
 # =========================
 # Metrics
 # =========================
@@ -33,7 +32,8 @@ def calculate_mape(y_true, y_pred):
 # =========================
 
 def load_data(path):
-    return pd.read_csv("data/processed_btc_data.csv")
+    return pd.read_csv("data/processed_btc_data.csv"")
+
 
 # =========================
 # Feature Engineering Input
@@ -103,7 +103,7 @@ def evaluate(model, X_test, y_test):
 
 
 # =========================
-# FEATURE IMPORTANCE PLOT
+# FEATURE IMPORTANCE
 # =========================
 
 def plot_feature_importance(model):
@@ -137,7 +137,6 @@ def plot_feature_importance(model):
 # =========================
 
 def save_model(model, path="models/model.pkl"):
-
     joblib.dump(model, path)
 
 
@@ -157,23 +156,25 @@ def main():
 
     mae, rmse, mape, preds = evaluate(model, X_test, y_test)
 
-print("\n==============================")
-print("📊 MODEL PERFORMANCE REPORT")
-print("==============================")
+    # ===== PRINT REPORT INSIDE MAIN =====
+    print("\n==============================")
+    print("📊 MODEL PERFORMANCE REPORT")
+    print("==============================")
 
-print(f"MAE  : {mae:.2f}")
-print(f"RMSE : {rmse:.2f}")
-print(f"MAPE : {mape:.2f}%")
+    print(f"MAE  : {mae:.2f}")
+    print(f"RMSE : {rmse:.2f}")
+    print(f"MAPE : {mape:.2f}%")
 
-print("\n==============================")
-print("📌 MODEL SUMMARY")
-print("==============================")
-print("Model Type : Linear Regression")
-print("Data Split : 80% Train / 20% Test (Time Series)")
-print("Target     : Bitcoin Closing Price")
-print("Features   : OHLC + Technical Indicators")
+    print("\n==============================")
+    print("📌 MODEL SUMMARY")
+    print("==============================")
+    print("Model Type : Linear Regression")
+    print("Data Split : 80% Train / 20% Test (Time Series)")
+    print("Target     : Bitcoin Closing Price")
+    print("Features   : OHLC + Technical Indicators")
 
-print("\n==============================\n")
+    print("\n==============================\n")
+
     # FEATURE IMPORTANCE
     plot_feature_importance(model)
 
