@@ -157,12 +157,23 @@ def main():
 
     mae, rmse, mape, preds = evaluate(model, X_test, y_test)
 
-    print("\n===== MODEL PERFORMANCE =====")
-    print("MAE:", round(mae, 2))
-    print("RMSE:", round(rmse, 2))
-    print("MAPE:", round(mape, 2), "%")
-    print("=============================\n")
+print("\n==============================")
+print("📊 MODEL PERFORMANCE REPORT")
+print("==============================")
 
+print(f"MAE  : {mae:.2f}")
+print(f"RMSE : {rmse:.2f}")
+print(f"MAPE : {mape:.2f}%")
+
+print("\n==============================")
+print("📌 MODEL SUMMARY")
+print("==============================")
+print("Model Type : Linear Regression")
+print("Data Split : 80% Train / 20% Test (Time Series)")
+print("Target     : Bitcoin Closing Price")
+print("Features   : OHLC + Technical Indicators")
+
+print("\n==============================\n")
     # FEATURE IMPORTANCE
     plot_feature_importance(model)
 
