@@ -32,7 +32,7 @@ def calculate_mape(y_true, y_pred):
 # =========================
 
 def load_data(path):
-    return pd.read_csv("data/processed_btc_data.csv"")
+    return pd.read_csv("data/processed_btc_data.csv")
 
 
 # =========================
