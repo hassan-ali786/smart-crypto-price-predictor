@@ -1,6 +1,7 @@
 import pandas as pd
 import joblib
 import numpy as np
+import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
@@ -32,12 +33,10 @@ def calculate_mape(y_true, y_pred):
 # =========================
 
 def load_data(path):
-    return pd.read_csv(path)
-
+    return pd.read_csv("data/processed_btc_data.csv")
 
 # =========================
 # Feature Engineering Input
-# (must match preprocess.py EXACTLY)
 # =========================
 
 def prepare_data(df):
@@ -63,7 +62,7 @@ def prepare_data(df):
 
 
 # =========================
-# Train/Test Split (Time Series Safe)
+# Train/Test Split
 # =========================
 
 def split_data(X, y):
@@ -104,6 +103,36 @@ def evaluate(model, X_test, y_test):
 
 
 # =========================
+# FEATURE IMPORTANCE PLOT
+# =========================
+
+def plot_feature_importance(model):
+
+    importance = model.coef_
+
+    features = [
+        "Open",
+        "High",
+        "Low",
+        "Volume",
+        "MA7",
+        "MA14",
+        "Lag1",
+        "Lag2",
+        "Lag3",
+        "Returns",
+        "RSI"
+    ]
+
+    plt.figure(figsize=(10, 5))
+    plt.bar(features, importance)
+    plt.title("Feature Importance (Linear Regression)")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    plt.show()
+
+
+# =========================
 # Save Model
 # =========================
 
@@ -128,9 +157,14 @@ def main():
 
     mae, rmse, mape, preds = evaluate(model, X_test, y_test)
 
+    print("\n===== MODEL PERFORMANCE =====")
     print("MAE:", round(mae, 2))
     print("RMSE:", round(rmse, 2))
     print("MAPE:", round(mape, 2), "%")
+    print("=============================\n")
+
+    # FEATURE IMPORTANCE
+    plot_feature_importance(model)
 
     save_model(model)
 
