@@ -17,7 +17,7 @@ FEATURES = [
 ]
 
 
-def load_model(path="model.pkl"):
+def load_model(path="models/model.pkl"):
     model = joblib.load(path)
     return model
 
