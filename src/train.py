@@ -116,7 +116,7 @@ def plot_feature_importance(model):
         "Low",
         "Volume",
         "MA7",
-        "MA14",
+        "MA30",
         "Lag1",
         "Lag2",
         "Lag3",
