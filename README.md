@@ -26,9 +26,9 @@ This project builds a complete ML pipeline for cryptocurrency price prediction â
 ---
 ##  Live Demo :
 
-https://github.com/user-attachments/assets/d2237d09-3caf-4480-b0e0-f54e577e41dc
+<video src="https://github.com/user-attachments/assets/d2237d09-3caf-4480-b0e0-f54e577e41dc" width="100%" controls></video>
 
-
+---
 
 ## Features
 
