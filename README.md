@@ -24,6 +24,11 @@ This project builds a complete ML pipeline for cryptocurrency price prediction â
 [![Live App](https://img.shields.io/badge/Live%20App-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://smart-crypto-price-predictor-flkqnpurgjrv3eqvg2ww3v.streamlit.app/)
 
 ---
+##  Live Demo :
+
+https://github.com/user-attachments/assets/d2237d09-3caf-4480-b0e0-f54e577e41dc
+
+
 
 ## Features
 
