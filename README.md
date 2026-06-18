@@ -173,4 +173,4 @@ Built as a collaborative ML project.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Hassan_Ali-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hassan-ali-datascientist)
 [![Portfolio](https://img.shields.io/badge/Portfolio-Visit-f0b429?style=flat-square&logo=vercel&logoColor=black)](https://hassanali-portfolio.vercel.app)
-[![GitHub](https://img.shields.io/badge/GitHub-hassandatasci-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/hassandatasci)
+[![GitHub](https://img.shields.io/badge/GitHub-hassandatasci-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/hassan-ali786)
