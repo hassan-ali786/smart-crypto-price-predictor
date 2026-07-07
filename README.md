@@ -159,13 +159,14 @@ streamlit run app/app.py
 *Results on 20% holdout test set (time-series split, shuffle=False)*
 
 ---
-
 ## Authors
 
-Built as a collaborative ML project.
+This project was developed collaboratively by:
 
-- **Hassan Ali** — Streamlit frontend (`app/app.py`), UI/UX, app integration
-- **Dua Zahra** — Data preprocessing, feature engineering, model training, notebooks
+- **Hassan Ali**
+- **Dua Zahra**
+
+Both contributors worked together on data analysis, machine learning development, implementation, and project integration.
 
 ---
 
